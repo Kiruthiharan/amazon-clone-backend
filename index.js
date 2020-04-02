@@ -5,13 +5,14 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
 const User = require('./models/user');
-
-const productRoutes = require('./routes/product');
-
-
 dotenv.config();
 
 const app = express();
+
+const productRoutes = require('./routes/product');
+const categorytRoutes = require('./routes/category');
+const ownerRoutes = require('./routes/owner');
+
 
 mongoose.connect(process.env.DATABASE,
     {useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
@@ -28,6 +29,10 @@ app.use(morgan('dev')); //log requests made to the api
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use('/api', productRoutes);
+app.use('/api', categorytRoutes);
+app.use('/api', ownerRoutes);
+
+
 
 app.listen(3000, error => {
     if (error) {
