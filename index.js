@@ -13,6 +13,7 @@ const app = express();
 const productRoutes = require('./routes/product');
 const categorytRoutes = require('./routes/category');
 const ownerRoutes = require('./routes/owner');
+const userRoutes = require('./routes/auth');
 
 
 mongoose.connect(process.env.DATABASE,
@@ -33,6 +34,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use('/api', productRoutes);
 app.use('/api', categorytRoutes);
 app.use('/api', ownerRoutes);
+app.use('/api', userRoutes);
 
 
 
