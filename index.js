@@ -14,6 +14,7 @@ const productRoutes = require('./routes/product');
 const categorytRoutes = require('./routes/category');
 const ownerRoutes = require('./routes/owner');
 const userRoutes = require('./routes/auth');
+const reviewRoutes = require('./routes/review');
 
 
 mongoose.connect(process.env.DATABASE,
@@ -35,6 +36,7 @@ app.use('/api', productRoutes);
 app.use('/api', categorytRoutes);
 app.use('/api', ownerRoutes);
 app.use('/api', userRoutes);
+app.use('/api', reviewRoutes);
 
 
 
