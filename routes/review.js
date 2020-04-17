@@ -13,8 +13,8 @@ router.post('/reviews/:productId', [ verifyToken, upload.single("photo") ], asyn
         review.photo = req.body.photo;
         review.user = req.decoded._id;
         review.productId = req.params.productId;
-        
-        await Product.update({ $push: review._id });
+        review.photo = req.file.location;
+        await Product.update({ $push: { reviews:review._id} });
         const savedReview = await review.save();
 
         if(savedReview) {
