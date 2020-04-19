@@ -16,6 +16,7 @@ const ownerRoutes = require('./routes/owner');
 const userRoutes = require('./routes/auth');
 const reviewRoutes = require('./routes/review');
 const addressRoutes = require('./routes/address');
+const paymentRoutes = require('./routes/payment');
 
 
 mongoose.connect(process.env.DATABASE,
@@ -39,6 +40,7 @@ app.use('/api', ownerRoutes);
 app.use('/api', userRoutes);
 app.use('/api', reviewRoutes);
 app.use('/api', addressRoutes);
+app.use('/api', paymentRoutes);
 
 
 
